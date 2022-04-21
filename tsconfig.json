@@ -1,0 +1,72 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    /**
+    （1）告诉编译器对发出的.js文件中的模块使用什么语法。可选择 none、commonjs、amd、system、umd、es2015或esnext
+
+    （2）告诉编译器以哪种语法编写代码，意味着必须从哪个代码将其编译为commonjs。
+
+    （3）如果用于服务器端项目 如果使用的是Angular前端应用程序，则使用Node.js，然后可能使用CJS 可能不是ESM
+
+    （4）较新的JS版本有时包含用于模块导入/导出的更多功能。将export设置为"module"可以支持这些功能，而这些功能通常尚未添加到官方规范中。例如dynamic import的"ESNext"表达式。
+
+    （5）无论如何，编译器的目的是将代码编译成浏览器可理解的语法（commonjs）
+
+    （6）module影响发出代码的模块语法，而target影响其余代码
+    */
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    /**
+    （1）模块解析策略，ts默认用node的解析策略，即相对的方式导入, 可选值：node、classic
+
+    （2）如果未指定，则 --module commonjs 默认为 node，否则默认为 classic（包括 --module 设置为 amd、system、umd、es2015、esnext 等）
+
+    （3）Node 模块解析是 TypeScript 社区中最常用的，推荐用于大多数项目。
+
+    （4）如果您在 TypeScript 中遇到导入和导出的解析问题，请尝试设置 moduleResolution: “node” 以查看它是否解决了问题。
+    */
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    /**
+    是否生成目标文件的sourceMap文件 
+    允许显示原始的ts源代码 此文件格式: .js.map(jsx.map) 位于相应的.js输出文件相同目录
+    定义了编译后的目标 javascript 版本, 可选择包括es6、es5、esnext
+    如果需要考虑兼容性问题就可以设置为es5或更低的版本，一般来说，我们需要让他编译为 es5，这样就可以被主流浏览器解读了。
+    如果代码是在高版本的现代浏览器或高版本的node端，就可以设置为esnext
+    */
+    "sourceMap": true,  
+    /**
+      用于拓宽引入非相对模块时的查找路径,其默认值就是./   paths属性基于baseUrl进行设置
+    */  
+    "baseUrl": ".",       
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
