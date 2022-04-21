@@ -7,6 +7,7 @@
   </div>
 </template>
 <script>
+//导入api
 import api from "./api/index.js"
 export default {
   components: {
