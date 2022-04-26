@@ -12,6 +12,11 @@ import api from "./api/index.js"
 export default {
   components: {
   },
+  data:{
+    return {
+      getUser:{}
+    }
+  },
   created:function(){
     //指定组件,以便于绑定属性到该组件的data上
     api.v(this)
