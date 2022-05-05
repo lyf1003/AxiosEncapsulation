@@ -12,7 +12,7 @@ import api from "./api/index.js"
 export default {
   components: {
   },
-  data:{
+  data(){
     return {
       getUser:{}
     }
@@ -21,7 +21,7 @@ export default {
     //指定组件,以便于绑定属性到该组件的data上
     api.v(this)
     //请求方式,传入的参数就是configs参数
-    api.user.getUser({data:{userId:7},type:"post"}})
+    api.user.getUser({data:{userId:7},type:"post"})
     console.log("APP.vue",this)
   },
 };
